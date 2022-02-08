@@ -8,11 +8,29 @@ namespace Nikhil.CodingChallenge.ViewModels
 {
     public class EmployeeDeductionViewModel
     {
-        [Display(Name = "Deduction Per Paycheck :")]
+        [Display(Name = "Employee Paycheck Deductions:")]
         [DisplayFormat(DataFormatString = "{0:C2}")]
-        public decimal DeductionPerPaycheck { get; set; }
-        [Display(Name = "Deduction Per Year :")]
+        public decimal EmployePaycheckDeductions { get; set; }
+
+        [Display(Name = "Employee Annual Deductions:")]
         [DisplayFormat(DataFormatString = "{0:C2}")]
-        public decimal DeductionPerAnum { get; set; }
+        public decimal EmployeeAnnualDeductions { get; set; }
+
+        [Display(Name = "Dependents Paycheck Deductions:")]
+        [DisplayFormat(DataFormatString = "{0:C2}")]
+        public decimal DependentPaycheckDeductions { get; set; }
+
+        [Display(Name = "Dependents Annual Deductions:")]
+        [DisplayFormat(DataFormatString = "{0:C2}")]
+        public decimal DependentAnnualDeductions { get; set; }
+
+        [Display(Name = "Paycheck After Deductions:")]
+        [DisplayFormat(DataFormatString = "{0:C2}")]
+        public decimal PayCheckAfterDeducations { get; set; }
+
+        [Display(Name = "Paycheck Before Deductions:")]
+        [DisplayFormat(DataFormatString = "{0:C2}")]
+        public decimal PayCheckBeforeDeducations { get; set; }
+        public bool HasDiscount { get; set; }
     }
 }

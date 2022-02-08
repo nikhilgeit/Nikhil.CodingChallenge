@@ -9,7 +9,7 @@ namespace Nikhil.CodingChallenge.Services
         {
             if (person != null && !string.IsNullOrEmpty(person.Name))
             {
-                return person.Name.StartsWith("A") ? Constants.DiscountRate : 0;
+                return person.Name.ToUpper().StartsWith("A") ? Constants.DiscountRate : 0;
             }
             else
             {

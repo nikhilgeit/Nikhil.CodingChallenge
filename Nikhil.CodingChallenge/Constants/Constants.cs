@@ -7,7 +7,7 @@ namespace Nikhil.CodingChallenge
 {
     public static class Constants
     {
-        public const int SalaryPerPayCheck = 2000;
+        public const int PayCheckAmount = 2000;
         public const int MaximumDependentsAllowed = 5;
         public const int EmployeeAnnualDeduction = 1000;
         public const int DependentAnnualDeduction = 500;

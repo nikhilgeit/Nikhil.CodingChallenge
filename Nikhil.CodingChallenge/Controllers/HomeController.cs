@@ -1,4 +1,5 @@
-﻿using Nikhil.CodingChallenge.Helpers;
+﻿using Nikhil.CodingChallenge.Handlers;
+using Nikhil.CodingChallenge.Helpers;
 using Nikhil.CodingChallenge.Models;
 using Nikhil.CodingChallenge.ViewModels;
 using System;
@@ -11,6 +12,7 @@ namespace Nikhil.CodingChallenge.Controllers
 {
     public class HomeController : Controller
     {
+        [CustomExceptionHandler]
         public ActionResult Index()
         {
             var model = new DependentSelectionViewModel();
@@ -18,6 +20,7 @@ namespace Nikhil.CodingChallenge.Controllers
         }
 
         [HttpPost]
+        [CustomExceptionHandler]
         public ActionResult Index(DependentSelectionViewModel model)
         {
             if (ModelState.IsValid && model !=null)

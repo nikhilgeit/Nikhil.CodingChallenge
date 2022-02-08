@@ -144,11 +144,12 @@
     <Compile Include="Constants\Constants.cs" />
     <Compile Include="Contracts\IDeductionService.cs" />
     <Compile Include="Contracts\IDiscountService.cs" />
-    <Compile Include="Controllers\DecuctionResultsController.cs" />
+    <Compile Include="Controllers\DeductionResultsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Handlers\CustomExceptionHandler.cs" />
     <Compile Include="Helpers\DependentType.cs" />
     <Compile Include="Helpers\HelperService.cs" />
     <Compile Include="Models\Dependent.cs" />
@@ -194,7 +195,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\DecuctionResults\Index.cshtml" />
+    <Content Include="Views\DeductionResults\Index.cshtml" />
     <Content Include="Views\Home\DependentSelection.cshtml" />
     <Content Include="Views\Home\EditorTemplates\Dependent.cshtml" />
   </ItemGroup>

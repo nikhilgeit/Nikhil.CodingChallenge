@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace Nikhil.CodingChallenge.Helpers
@@ -24,7 +22,7 @@ namespace Nikhil.CodingChallenge.Helpers
             for (var i = 0; i <= Constants.MaximumDependentsAllowed; i++)
             {
                 var selectionItem = new SelectListItem() { Value = i.ToString() };
-                selectionItem.Text = i == 0 ? "No Dependent" : (i == 1 ? $"{i} Dependent" : $"{i} Dependents") ;
+                selectionItem.Text = i == 0 ? "No Dependent" : i.ToString();
                 dependentSelectionList.Add(selectionItem);
             }
             return dependentSelectionList;

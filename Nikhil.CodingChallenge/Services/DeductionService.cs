@@ -1,6 +1,7 @@
 ﻿using Nikhil.CodingChallenge;
 using Nikhil.CodingChallenge.Contracts;
 using Nikhil.CodingChallenge.Models;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace CodingChallenge.BusinessLayer.Services
@@ -13,23 +14,40 @@ namespace CodingChallenge.BusinessLayer.Services
         {
             _discountService = discountService;
         }
-        public decimal CalculateDeductionPerPaycheck(Employee employee)
+        public decimal CalculateEmployeePaycheckDeductions(Employee employee)
         {
-            return CalculateDeductionPerYear(employee) / Constants.YearlyPayChecksCount;
+            return CalculateEmployeeAnnualDeductions(employee) / Constants.YearlyPayChecksCount;
         }
 
-        public decimal CalculateDeductionPerYear(Employee employee)
+        public decimal CalculateEmployeeAnnualDeductions(Employee employee)
         {
-            var employeeAnnualDeduction = Constants.EmployeeAnnualDeduction * (1 - _discountService.GetDiscount(employee));
-            if (employee.Dependents.Any())
+            var employeeDiscount = Constants.EmployeeAnnualDeduction * _discountService.GetDiscount(employee);
+            return Constants.EmployeeAnnualDeduction - employeeDiscount;
+        }
+
+        public decimal CalculateDependentsPaycheckDeductions(List<Dependent> dependents)
+        {
+            return CalculateDependentsAnnualDeductions(dependents) / Constants.YearlyPayChecksCount;
+        }
+
+        public decimal CalculateDependentsAnnualDeductions(List<Dependent> dependents)
+        {
+            if (dependents.Any())
             {
-                foreach (var dependent in employee.Dependents)
+                var dependentsDiscount = 0m;
+                if (dependents.Any())
                 {
-                    employeeAnnualDeduction += Constants.DependentAnnualDeduction * (1 - _discountService.GetDiscount(dependent));
+                    foreach (var dependent in dependents)
+                    {
+                        dependentsDiscount += Constants.DependentAnnualDeduction * _discountService.GetDiscount(dependent);
+                    }
                 }
+                return Constants.DependentAnnualDeduction - dependentsDiscount;
             }
-            return employeeAnnualDeduction;
+            else
+            {
+                return 0;
+            }
         }
-
     }
 }
